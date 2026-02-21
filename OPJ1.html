@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Application de préparation QCM OPJ - Police Nationale">
+    <meta name="theme-color" content="#38bdf8">
+    <title>QCM Bloc OPJ - Préparation Légendaire</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlFDTSBCbG9jIE9QSiAtIFByw6lwYXJhdGlvbiBMw6lnZW5kYWlyZSIsCiAgInNob3J0X25hbWUiOiAiT1BKIFF1aXoiLAogICJkZXNjcmlwdGlvbiI6ICJBcHBsaWNhdGlvbiBkZSBwcsOpcGFyYXRpb24gYXUgY29uY291cnMgT1BKIiwKICAic3RhcnRfdXJsIjogIi4vIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMGYxNzJhIiwKICAidGhlbWVfY29sb3IiOiAiIzM4YmRmOCIsCiAgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTVRreUlpQm9aV2xuYUhROUlqRTVNaUlnZG1sbGQwSnZlRDBpTUNBd0lERTVNaUF4T1RJaUlIaHRiRzV6UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMM04yWnlJK1BISmxZM1FnZDJsa2RHZzlJakU1TWlJZ2FHVnBaMmgwUFNJeE9USWlJR1pwYkd3OUlpTXdabUUxWlRJaUx6NDhkR1Y0ZENCNFBTSTVOaUlnZVQwaU9UWWlJR1pwYkd3OUlpTXdaakUzTW1FaUlHWnZiblF0YzJsNlpUMGlOamdpSUdadmJuUXRkMlZwWjJoMFBTSTNNREFpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaVBrOVFTand2ZEdWNGRENDhMM04yWno0PSIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTlRFeUlpQm9aV2xuYUhROUlqVXhNaUlnZG1sbGQwSnZlRDBpTUNBd0lEVXhNaUExTVRJaUlIaHRiRzV6UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMM04yWnlJK1BISmxZM1FnZDJsa2RHZzlJalV4TWlJZ2FHVnBaMmgwUFNJMU1USWlJR1pwYkd3OUlpTXdabUUxWlRJaUx6NDhkR1Y0ZENCNFBTSXlOVFlpSUhrOUlqSTFOaUlnWm1sc2JEMGlJMEJtTVRjeVlTSWdabTl1ZEMxemFYcGxQU0l4TWpBaUlHWnZiblF0ZDJWcFoyaDBQU0kzTURBaUlIUmxlSFF0WVc1amFHOXlQU0p0YVdSa2JHVWlQazlRU2p3dmRHVjRkRDQ4TDNOMlp6ND0iLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiCiAgICB9CiAgXQp9">
+    
+    <style>
+        /* Design System - CSS Variables */
+        :root {
+            /* Colors */
+            --color-bg-primary: #0f172a;
+            --color-bg-secondary: #1e293b;
+            --color-bg-tertiary: #334155;
+            --color-text-primary: #f1f5f9;
+            --color-text-secondary: #cbd5e1;
+            --color-text-muted: #94a3b8;
+            --color-accent-cyan: #38bdf8;
+            --color-accent-blue: #3b82f6;
+            --color-success: #10b981;
+            --color-error: #ef4444;
+            --color-warning: #f59e0b;
+            
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
+            --radius-full: 9999px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.25);
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @media (prefers-color-scheme: light) {
+            :root {
+                --color-bg-primary: #f8fafc;
+                --color-bg-secondary: #ffffff;
+                --color-bg-tertiary: #f1f5f9;
+                --color-text-primary: #0f172a;
+                --color-text-secondary: #475569;
+                --color-text-muted: #64748b;
+                --color-accent-cyan: #0284c7;
+                --color-accent-blue: #2563eb;
+            }
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: var(--space-4);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+            text-align: center;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            box-shadow: var(--shadow-xl);
+            backdrop-filter: blur(20px);
+            animation: slideDown 0.5s var(--transition-slow);
+        }
+        
+        .header h1 {
+            font-size: clamp(1.75rem, 5vw, 3rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--color-accent-cyan) 0%, var(--color-accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-4);
+            letter-spacing: -0.02em;
+        }
+        
+        .header p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
+            animation: fadeIn 0.6s var(--transition-slow) 0.2s both;
+        }
+        
+        .stat-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            text-align: center;
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-accent-cyan);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-accent-cyan);
+            display: block;
+            margin-bottom: var(--space-2);
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: var(--space-3);
+            margin-bottom: var(--space-8);
+            overflow-x: auto;
+            padding-bottom: var(--space-2);
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-accent-cyan) transparent;
+        }
+        
+        .nav-tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .nav-tabs::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .nav-tabs::-webkit-scrollbar-thumb {
+            background: var(--color-accent-cyan);
+            border-radius: var(--radius-full);
+        }
+        
+        .nav-tab {
+            padding: var(--space-3) var(--space-6);
+            background: var(--color-bg-tertiary);
+            border: 2px solid transparent;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            white-space: nowrap;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+        }
+        
+        .nav-tab:hover {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: var(--color-accent-cyan);
+            transform: translateY(-2px);
+        }
+        
+        .nav-tab.active {
+            background: var(--color-accent-cyan);
+            color: var(--color-bg-primary);
+            border-color: var(--color-accent-cyan);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+        }
+        
+        /* Sections */
+        .section {
+            display: none;
+            animation: fadeIn 0.4s var(--transition-base);
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        /* Quiz Card */
+        .quiz-card {
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            box-shadow: var(--shadow-xl);
+            backdrop-filter: blur(20px);
+            margin-bottom: var(--space-8);
+        }
+        
+        /* Progress Bar */
+        .progress-wrapper {
+            width: 100%;
+            background: var(--color-bg-tertiary);
+            border-radius: var(--radius-full);
+            height: 12px;
+            overflow: hidden;
+            margin-bottom: var(--space-6);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-accent-cyan) 0%, var(--color-accent-blue) 100%);
+            border-radius: var(--radius-full);
+            transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        /* Question */
+        .question-container {
+            margin-bottom: var(--space-8);
+        }
+        
+        .question-number {
+            font-size: 0.875rem;
+            color: var(--color-accent-cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-3);
+        }
+        
+        .question-text {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-6);
+            line-height: 1.4;
+        }
+        
+        /* Options */
+        .options-grid {
+            display: grid;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+        }
+        
+        .option {
+            padding: var(--space-5);
+            background: rgba(51, 65, 85, 0.6);
+            border: 3px solid transparent;
+            border-radius: var(--radius-xl);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--color-text-primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .option:hover {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: var(--color-accent-cyan);
+            transform: translateX(8px);
+        }
+        
+        .option:hover::before {
+            left: 100%;
+        }
+        
+        .option.selected {
+            border-color: var(--color-accent-cyan);
+            background: rgba(56, 189, 248, 0.2);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+        
+        .option.correct {
+            border-color: var(--color-success);
+            background: rgba(16, 185, 129, 0.2);
+            animation: correctPulse 0.6s ease-in-out;
+        }
+        
+        .option.incorrect {
+            border-color: var(--color-error);
+            background: rgba(239, 68, 68, 0.2);
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        .option.disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        
+        /* Explanation */
+        .explanation {
+            padding: var(--space-5);
+            background: rgba(16, 185, 129, 0.15);
+            border-radius: var(--radius-xl);
+            border-left: 4px solid var(--color-success);
+            font-style: italic;
+            color: var(--color-text-secondary);
+            margin-top: var(--space-6);
+            display: none;
+            animation: slideUp 0.4s var(--transition-base);
+        }
+        
+        .explanation.show {
+            display: block;
+        }
+        
+        .explanation::before {
+            content: '💡 ';
+            font-style: normal;
+            margin-right: var(--space-2);
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: var(--space-4) var(--space-8);
+            border: none;
+            border-radius: var(--radius-xl);
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            width: 100%;
+            text-align: center;
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-accent-cyan) 0%, var(--color-accent-blue) 100%);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--color-success) 0%, #059669 100%);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-success:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+        }
+        
+        /* Results */
+        .results-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.1) 100%);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-12);
+            text-align: center;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            box-shadow: var(--shadow-xl);
+            animation: scaleIn 0.5s var(--transition-slow);
+        }
+        
+        .final-score {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--color-success) 0%, var(--color-accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-6);
+            animation: countUp 1s ease-out;
+        }
+        
+        .final-message {
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-8);
+        }
+        
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+        
+        .score-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            backdrop-filter: blur(10px);
+        }
+        
+        .score-item h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+        }
+        
+        .score-item .number {
+            font-size: 3rem;
+            font-weight: 900;
+        }
+        
+        .score-item.correct h3 {
+            color: var(--color-success);
+        }
+        
+        .score-item.correct .number {
+            color: var(--color-success);
+        }
+        
+        .score-item.incorrect h3 {
+            color: var(--color-error);
+        }
+        
+        .score-item.incorrect .number {
+            color: var(--color-error);
+        }
+        
+        /* Fiches */
+        .fiches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .fiche-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            transition: all var(--transition-base);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        
+        .fiche-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-accent-cyan);
+        }
+        
+        .fiche-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-accent-cyan);
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .fiche-content {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            display: none;
+            animation: fadeIn 0.3s var(--transition-base);
+        }
+        
+        .fiche-card.expanded .fiche-content {
+            display: block;
+        }
+        
+        .fiche-card.expanded .fiche-title::after {
+            content: ' ▼';
+            font-size: 0.875rem;
+        }
+        
+        .fiche-title::after {
+            content: ' ▶';
+            font-size: 0.875rem;
+            transition: transform var(--transition-base);
+        }
+        
+        /* Oral Section */
+        .oral-grid {
+            display: grid;
+            gap: var(--space-4);
+        }
+        
+        .oral-item {
+            background: var(--color-bg-secondary);
+            padding: var(--space-5);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+        
+        .oral-item:hover {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: var(--color-accent-cyan);
+        }
+        
+        .oral-question {
+            font-weight: 700;
+            color: var(--color-text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .oral-answer {
+            margin-top: var(--space-4);
+            padding: var(--space-4);
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--color-accent-cyan);
+            color: var(--color-text-secondary);
+            display: none;
+            animation: slideDown 0.3s var(--transition-base);
+        }
+        
+        .oral-item.expanded .oral-answer {
+            display: block;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--space-8);
+            background: linear-gradient(135deg, var(--color-accent-cyan) 0%, var(--color-accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        @keyframes correctPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: var(--space-3);
+            }
+            
+            .header {
+                padding: var(--space-6);
+                margin-bottom: var(--space-6);
+            }
+            
+            .quiz-card {
+                padding: var(--space-5);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-4);
+            }
+            
+            .nav-tabs {
+                gap: var(--space-2);
+            }
+            
+            .nav-tab {
+                padding: var(--space-2) var(--space-4);
+                font-size: 0.8125rem;
+            }
+            
+            .option {
+                padding: var(--space-4);
+                font-size: 1rem;
+            }
+            
+            .fiches-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-card {
+                padding: var(--space-6);
+            }
+        }
+        
+        /* Hidden Utility */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: var(--space-12);
+            color: var(--color-text-muted);
+        }
+        
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎓 QCM Bloc OPJ</h1>
+            <p>Préparation légendaire pour votre concours OPJ - Police Nationale</p>
+        </header>
+        
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number" id="scoreDisplay">0</span>
+                <small class="stat-label">Score</small>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="progressDisplay">0%</span>
+                <small class="stat-label">Progression</small>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="questionNumDisplay">1/20</span>
+                <small class="stat-label">Question</small>
+            </div>
+            <div class="stat-card" onclick="restartQuiz()">
+                <span class="stat-number">🔄</span>
+                <small class="stat-label">Recommencer</small>
+            </div>
+        </div>
+        
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="switchTab('quiz')">📝 Quiz</div>
+            <div class="nav-tab" onclick="switchTab('fiches')">📚 Fiches OPJ</div>
+            <div class="nav-tab" onclick="switchTab('oral')">🎤 Questions Oral</div>
+        </div>
+        
+        <!-- Quiz Section -->
+        <section id="quizSection" class="section active">
+            <div class="quiz-card">
+                <div class="progress-wrapper">
+                    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+                </div>
+                
+                <div id="questionContainer" class="question-container">
+                    <!-- Questions loaded by JS -->
+                </div>
+                
+                <button id="nextBtn" class="btn btn-primary" onclick="nextQuestion()" disabled>
+                    Sélectionnez une réponse
+                </button>
+            </div>
+        </section>
+        
+        <!-- Results Section -->
+        <section id="resultsSection" class="section hidden">
+            <div class="results-card">
+                <div class="final-score" id="finalScore">0%</div>
+                <p class="final-message" id="finalMessage"></p>
+                
+                <div class="score-breakdown">
+                    <div class="score-item correct">
+                        <h3>✅ Correctes</h3>
+                        <div class="number" id="correctCount">0</div>
+                    </div>
+                    <div class="score-item incorrect">
+                        <h3>❌ Fausses</h3>
+                        <div class="number" id="incorrectCount">0</div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-success btn-icon" onclick="restartQuiz()">
+                    <span>🔄</span> Recommencer le Quiz
+                </button>
+            </div>
+        </section>
+        
+        <!-- Fiches Section -->
+        <section id="fichesSection" class="section">
+            <h2 class="section-header">📚 Fiches OPJ Rapides</h2>
+            <div class="fiches-grid">
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">🔍 Définition OPJ</div>
+                    <div class="fiche-content">
+                        <strong>Officier de Police Judiciaire</strong> : Agent habilité à constater les infractions, 
+                        rassembler les preuves, entendre les témoins et placer en garde à vue (art. 16 CPP). 
+                        Distinction entre OPJ actifs (commissaires, officiers) et OPJ par fonction 
+                        (commandants, capitaines après 3 ans).
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">⚖️ Pouvoirs OPJ</div>
+                    <div class="fiche-content">
+                        <strong>Pouvoirs coercitifs</strong> : perquisitions domiciliaires, saisies pénales, 
+                        interpellations, gardes à vue (art. 53, 56, 63 CPP). <strong>Limites strictes</strong> : 
+                        flagrance ou autorisation judiciaire (Procureur/JLD). Respect des libertés fondamentales.
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">⏱️ Garde à Vue</div>
+                    <div class="fiche-content">
+                        <strong>Durée</strong> : 24h initiales renouvelables une fois (48h max hors terrorisme/criminalité organisée). 
+                        <strong>Droits</strong> : notification famille/consulat, avocat dès début (30min), examen médical, 
+                        interprète si nécessaire. <strong>Conditions</strong> : indices graves et concordants (art. 62-2 CPP).
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">🚨 Flagrance</div>
+                    <div class="fiche-content">
+                        <strong>Définition large</strong> : infraction en cours de commission OU venant de se commettre 
+                        (art. 53 CPP). <strong>Critères</strong> : clameur publique, indices apparents, possession d'objets 
+                        laissant penser à une participation. <strong>Conséquence</strong> : pouvoirs étendus sans autorisation préalable.
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">🏠 Perquisitions</div>
+                    <div class="fiche-content">
+                        <strong>En flagrance</strong> : libres de 6h à 21h (nuit si nécessité). <strong>Hors flagrance</strong> : 
+                        autorisation écrite JLD obligatoire + présence occupant ou témoins. <strong>PV descriptif</strong> : 
+                        inventaire exhaustif des saisies, signatures requises (art. 56-57 CPP).
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">👶 Mineurs</div>
+                    <div class="fiche-content">
+                        <strong>Protection renforcée</strong> : présence représentant légal obligatoire (art. 3 Ordonnance 1945). 
+                        <strong>Avocat obligatoire</strong> dès 1er interrogatoire. <strong>GAV</strong> : durée réduite selon âge, 
+                        examen médical systématique, notification parents immédiate. <strong>Adaptation</strong> des procédures au développement.
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">📋 Procès-Verbaux</div>
+                    <div class="fiche-content">
+                        <strong>Valeur juridique</strong> : foi publique jusqu'à preuve contraire si respect formes légales. 
+                        <strong>Contenu obligatoire</strong> : date, heure, lieu, identité OPJ, témoins, faits constatés objectivement. 
+                        <strong>Signature</strong> : intéressés + OPJ. <strong>Transmission</strong> : Procureur sans délai.
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">📞 Réquisitions</div>
+                    <div class="fiche-content">
+                        <strong>Principe</strong> : OPJ peut requérir toute personne qualifiée (art. 60 CPP). 
+                        <strong>Exemples</strong> : médecin (alcoolémie), expert (informatique), serrurier. 
+                        <strong>Obligation</strong> : répondre sous peine d'amende. <strong>Écrit</strong> : réquisition motivée et datée.
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">⚖️ Classification Tripartite</div>
+                    <div class="fiche-content">
+                        <strong>CRIME</strong> : Réclusion/détention (10-20-30 ans-perpétuité), Cour d'Assises, instruction obligatoire, prescription 20 ans.
+                        <strong>DÉLIT</strong> : Emprisonnement (2 mois à 10 ans) + amende >3750€, Tribunal Correctionnel, instruction facultative, prescription 6 ans.
+                        <strong>CONTRAVENTION</strong> : Amende max 1500€ (3000€ récidive), Tribunal Police, instruction exceptionnelle, prescription 1 an. [Formation OPJ PDF]
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">📋 Alternatives Poursuites</div>
+                    <div class="fiche-content">
+                        <strong>Classement sans suite</strong> : Infraction non caractérisée, preuves insuffisantes, action publique non recevable.
+                        <strong>Avertissement pénal probatoire</strong> : Ex-rappel à la loi (majeurs/mineurs).
+                        <strong>Médiation pénale</strong> : Accord victime, faits reconnus (INTERDIT violences conjugales).
+                        <strong>Composition pénale</strong> : Reconnaissance faits + peine ≤5 ans + validation Président TJ. [Formation OPJ PDF]
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">👥 Témoins en Enquête</div>
+                    <div class="fiche-content">
+                        <strong>Obligations</strong> : Rester sur place (art.61), comparaître (contrainte possible), informer crime (art.434-1 non-dénonciation).
+                        <strong>Droits</strong> : Audition max 4h si contrainte, lecture déclarations, observations, anonymat possible (art.706-57/58).
+                        <strong>Pré levements</strong> : Signalisation comparative possible sans autorisation. [CNJ Questions Oral PDF]
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">🔍 Audition Libre</div>
+                    <div class="fiche-content">
+                        <strong>Définition</strong> : Personne suspectée mais pas raisons plausibles suffisantes GAV ou préfère audition libre (art.61-1 CPP).
+                        <strong>Droits</strong> : Quitter audition à tout moment, assistance avocat, interprète, notification droits.
+                        <strong>Durée</strong> : Pas limitation mais si dépassement nécessaire = passage GAV. [Formation OPJ PDF]
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">📊 Juridictions Pénales</div>
+                    <div class="fiche-content">
+                        <strong>1er degré</strong> : Tribunal Police (contraventions 5e+4e), Tribunal Correctionnel (délits), Cour d'Assises (crimes).
+                        <strong>Appel</strong> : Cour d'Appel (délais 10 jours), Cour d'Assises d'Appel.
+                        <strong>Cassation</strong> : Cour de Cassation (contrôle application loi, pas faits).
+                        <strong>Spécialisées</strong> : Tribunal pour enfants, JIRS (criminalité organisée). [Formation OPJ PDF]
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">🔐 Lieux Protégés</div>
+                    <div class="fiche-content">
+                        <strong>Ambassades</strong> : Interdit (sauf réquisition chef mission diplomatique).
+                        <strong>Assemblée Nationale</strong> : Réquisition préalable Président AN.
+                        <strong>Universités</strong> : Réquisition chef établissement OU autorisation PR OU urgence (secours/péril grave).
+                        <strong>Établissements militaires</strong> : Réquisition autorité militaire.
+                        <strong>Secret pro</strong> : Procédure spéciale (Bâtonnier, Ordre). [CNJ Questions Oral PDF]
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">⏰ Prescription Action Publique</div>
+                    <div class="fiche-content">
+                        <strong>Droit commun</strong> : Crimes 20 ans, Délits 6 ans, Contraventions 1 an (point départ = jour commission).
+                        <strong>Cas particuliers</strong> : Terrorisme/Stups 30 ans crimes, 20 ans délits. Crimes contre humanité IMPRESCRIPTIBLES.
+                        <strong>Infractions sur mineurs</strong> : Délai court à partir majorité (crimes 30 ans, agressions sexuelles 20 ans). [Formation OPJ PDF]
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">🚔 Mandats de Justice</div>
+                    <div class="fiche-content">
+                        <strong>Mandat amener</strong> : Comparution immédiate personne devant magistrat (force publique si besoin).
+                        <strong>Mandat arrêt</strong> : Arrestation + incarcération immédiate.
+                        <strong>Mandat recherche</strong> : Recherche personne + présentation magistrat.
+                        <strong>Mandat dépôt</strong> : Incarcération immédiate après comparution. Tous décernés par JI ou JLD. [Formation OPJ PDF]
+                    </div>
+                </div>
+                
+                <div class="fiche-card" onclick="toggleFiche(this)">
+                    <div class="fiche-title">🔐 Secret Professionnel</div>
+                    <div class="fiche-content">
+                        <strong>Personnes protégées</strong> : avocats, médecins, journalistes (art. 56-1 CPP). 
+                        <strong>Perquisitions</strong> : procédures spéciales avec présence Bâtonnier/instance ordinale. 
+                        <strong>Saisies</strong> : tri contradictoire, scellés fermés JLD. <strong>Exception</strong> : 
+                        menace grave et imminente.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Oral Section -->
+        <section id="oralSection" class="section">
+            <h2 class="section-header">🎤 Questions Oral OPJ</h2>
+            <div class="oral-grid">
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Quelles sont vos motivations pour devenir OPJ ?</div>
+                    <div class="oral-answer">
+                        <strong>Axes de réponse</strong> : Évolution professionnelle naturelle après expérience terrain, 
+                        volonté d'autonomie dans les enquêtes, responsabilités accrues, passion pour investigation, 
+                        contribution directe à la justice. <strong>À éviter</strong> : réponses vagues, focalisation sur le grade uniquement.
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Expliquez la différence entre enquête de flagrance et préliminaire.</div>
+                    <div class="oral-answer">
+                        <strong>Flagrance</strong> : Infraction en cours/venant de se commettre, pouvoirs étendus immédiats, 
+                        pas d'autorisation préalable (art. 53 CPP). <strong>Préliminaire</strong> : Hors cadre flagrant, 
+                        autorisation Procureur nécessaire pour actes coercitifs, délais plus longs (art. 75 CPP). 
+                        <strong>Distinction</strong> : urgence et pouvoirs OPJ.
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Comment gérez-vous une situation de stress intense ?</div>
+                    <div class="oral-answer">
+                        <strong>Méthode</strong> : Prise de recul immédiate, respiration contrôlée, hiérarchisation des priorités, 
+                        application procédures strictes, appel renforts si nécessaire. <strong>Exemple concret</strong> : 
+                        Situation vécue en service (GAV difficile, interpellation à risque). <strong>Qualités</strong> : 
+                        sang-froid, discernement, rigueur.
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Décrivez votre compréhension du principe de loyauté des preuves.</div>
+                    <div class="oral-answer">
+                        <strong>Principe fondamental</strong> : Preuves obtenues par moyens légaux uniquement. 
+                        <strong>Interdictions</strong> : stratagèmes déloyaux, provocation policière, contrainte morale excessive. 
+                        <strong>Conséquence</strong> : Nullité procédure si violation. <strong>Jurisprudence</strong> : 
+                        CEDH (art. 6 - procès équitable), Cass. Crim. régulière.
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Que faites-vous face à un refus de GAV manifestement illégal d'un supérieur ?</div>
+                    <div class="oral-answer">
+                        <strong>Devoir d'obéissance limité</strong> : Refus d'ordre manifestement illégal et de nature à compromettre 
+                        gravement un intérêt public (art. 122-4 CP). <strong>Démarche</strong> : Alerter hiérarchie, consigner par écrit, 
+                        saisir autorité judiciaire si nécessaire, protection fonctionnaire. <strong>Équilibre</strong> : 
+                        loyauté institution vs légalité procédure.
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Citez 3 qualités essentielles d'un bon OPJ.</div>
+                    <div class="oral-answer">
+                        <strong>1. Rigueur procédurale</strong> : Respect strict CPP, PV irréprochables, anticipation contestations. 
+                        <strong>2. Sens de l'analyse</strong> : Synthèse rapide situations complexes, priorisation investigations, 
+                        intuition développée. <strong>3. Communication</strong> : Relations Procureur, encadrement équipe, 
+                        auditions efficaces, rédaction claire.
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Quelles sont les phases du procès pénal selon le CPP ?</div>
+                    <div class="oral-answer">
+                        <strong>1. Enquête de police</strong> : Constater infractions, rassembler preuves, rechercher auteurs (art.14 CPP).
+                        <strong>2. Poursuites</strong> : Décision Procureur (opportunité) = classement/alternatives/engagement poursuites.
+                        <strong>3. Instruction préparatoire</strong> : Facultative (obligatoire crimes) - Juge d'Instruction.
+                        <strong>4. Jugement</strong> : Culpabilité + peine par juridictions compétentes.
+                        <strong>5. Application peines</strong> : JAP/JE exécution décisions. [CNJ Questions Oral PDF]
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Quels sont les caractères du Ministère Public ?</div>
+                    <div class="oral-answer">
+                        <strong>Indivisible</strong> : Chaque magistrat représente l'ensemble du Parquet, interchangeables à l'audience.
+                        <strong>Irrcusable</strong> : Aucune décision ne peut être prise en son absence, personne ne peut le rejeter.
+                        <strong>Irresponsable</strong> : Ne peut être poursuivi pour décisions prises (classement, relaxe).
+                        <strong>Indépendant</strong> : Liberté décision sur opportunité poursuites (art.40-1 CPP).
+                        <strong>Hiérarchisé</strong> : Garde des Sceaux → PG → PR → OMP. [CNJ Questions Oral PDF]
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Quelles personnes sont protégées lors d'une enquête de flagrant délit ?</div>
+                    <div class="oral-answer">
+                        <strong>Président de la République</strong> : Immunité totale pendant fonctions.
+                        <strong>Parlementaires</strong> : Immunité limitée, autorisation bureau assemblée pour mesures coercitives (sauf flagrance + indices graves concordants).
+                        <strong>Agents diplomatiques</strong> : Immunité totale + famille + personnel mission.
+                        <strong>Agents consulaires</strong> : Immunité limitée, coercition possible crime flagrant.
+                        <strong>Organismes internationaux</strong> : Variable selon traités. [CNJ Questions Oral PDF]
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Quelles sont les causes d'extinction de l'action publique ?</div>
+                    <div class="oral-answer">
+                        <strong>Amnistie</strong> : Présidentielle, efface infraction.
+                        <strong>Abrogation loi pénale</strong> : Sauf lois exceptionnelles temporaires.
+                        <strong>Décès prévenu</strong> : Extinction action publique (pas action civile).
+                        <strong>Chose jugée</strong> : Jugement définitif après épuisement/dépassement voies recours.
+                        <strong>Transaction</strong> : Certaines infractions avec administrations (fiscale, forêts) contre versement somme.
+                        <strong>Prescription action publique</strong> : Crimes 20 ans, Délits 6 ans, Contraventions 1 an. [CNJ Questions Oral PDF]
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Expliquez les nullités textuelles et substantielles.</div>
+                    <div class="oral-answer">
+                        <strong>Nullités textuelles</strong> : Prévues expressément par un texte (ex: art.59 CPP pour perquisitions art.56-57).
+                        Sanctions non-respect formes légales prescrites à peine de nullité.
+                        <strong>Nullités substantielles</strong> : Non prévues par texte mais importance règle rend non-respect inacceptable.
+                        Jurisprudence apprécie gravité violation (principes fondamentaux procédure pénale).
+                        <strong>Condition commune</strong> : Grief causé à une partie OU nullité ordre public (protection libertés fondamentales). [CNJ Questions Oral PDF]
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Quelles sont les obligations du témoin en commission rogatoire ?</div>
+                    <div class="oral-answer">
+                        <strong>Comparaître</strong> : Réquisition force publique possible par JI sur réquisition PR si refus.
+                        <strong>Prêter serment</strong> : Obligatoire (exceptions: mineurs <16 ans, personnes interdites droits civiques, GAV).
+                        <strong>Décliner identité</strong> : Mentionner si parent/allié/au service des parties.
+                        <strong>Déposer</strong> : Témoigner sur faits connus.
+                        <strong>Sanctions</strong> : Refus = délit 3.750€ amende (art.434-15 CP). [CNJ Questions Oral PDF]
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Différence entre témoin assisté et mis en examen ?</div>
+                    <div class="oral-answer">
+                        <strong>Témoin assisté</strong> : Indices contre lui MAIS pas indices graves et concordants (art.113-1 CPP).
+                        Droits: assistance avocat, pas GAV, pas prestation serment, audition sur demande expresse uniquement.
+                        <strong>Mis en examen</strong> : Indices GRAVES ET CONCORDANTS rendant vraisemblable participation infraction (art.105 CPP).
+                        Droits: assistance avocat, contrôle judiciaire/détention provisoire possible, peut demander actes.
+                        <strong>Évolution</strong> : TA peut devenir ME si indices s'aggravent. [CNJ Questions Oral PDF]
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Qu'est-ce que la criminalité et délinquance organisée (CDO) ?</div>
+                    <div class="oral-answer">
+                        <strong>Définition</strong> : Infractions commises en bande organisée listées art.706-73 CPP (trafics stups/armes, proxénétisme, extorsions, enlèvements, blanchiment, terrorisme).
+                        <strong>Régime dérogatoire GAV</strong> : Durée 96h (4x24h) possible si infraction CDO punissable ≥5 ans.
+                        <strong>Perquisitions</strong> : Nuit possible sur autorisation JLD + moyens techniques (géolocalisation, sonorisations).
+                        <strong>Juridictions spécialisées</strong> : JIRS - Juridictions Interrégionales Spécialisées. [Formation OPJ PDF]
+                    </div>
+                </div>
+                
+                <div class="oral-item" onclick="toggleOral(this)">
+                    <div class="oral-question">❓ Expliquez le principe de l'opportunité des poursuites.</div>
+                    <div class="oral-answer">
+                        <strong>Principe</strong> : Procureur République apprécie liberté d'engager ou non poursuites (art.40-1 CPP).
+                        <strong>3 choix</strong> : 1) Classement sans suite (infraction non caractérisée, preuves insuffisantes, opportunité).
+                        2) Alternatives poursuites (médiation, composition pénale, rappel loi). 3) Engagement poursuites.
+                        <strong>Exceptions obligation agir</strong> : PG enjoint poursuivre, plainte constitution partie civile.
+                        <strong>Contrôle</strong> : Victime peut contester classement, se constituer PC devant doyen JI (délai 3 mois). [CNJ Questions Oral PDF]
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // Application State Management (Reactive Pattern)
+        const AppState = {
+            // Data
+            questions: [
+                {
+                    question: "Quelles sont les missions de la Police Judiciaire selon le CPP ?",
+                    options: [
+                        "Uniquement constater les infractions",
+                        "Constater les infractions, rassembler les preuves, rechercher les auteurs",
+                        "Surveiller la population",
+                        "Protéger les bâtiments publics"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 14 CPP : Missions PJ = Constater infractions + Rassembler preuves + Rechercher auteurs. [Formation OPJ PDF]"
+                },
+                {
+                    question: "Qui dirige, contrôle et surveille la mission de la Police Judiciaire ?",
+                    options: [
+                        "Le Ministre de l'Intérieur seul",
+                        "Le Procureur dirige, le Procureur Général surveille, la Chambre de l'instruction contrôle",
+                        "Uniquement les commissaires",
+                        "Le Préfet de police"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 12-13 CPP : PR dirige, PG surveille et habilite les OPJ, Chambre instruction contrôle (caractère disciplinaire). [Formation OPJ PDF]"
+                },
+                {
+                    question: "Qu'est-ce qu'un Officier de Police Judiciaire (OPJ) selon le Code de Procédure Pénale ?",
+                    options: [
+                        "Un officier administratif de la police",
+                        "Un agent habilité judiciairement à exercer des pouvoirs coercitifs",
+                        "Uniquement un commissaire de police",
+                        "Un gardien de la paix standard"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 16 CPP : L'OPJ est un agent habilité judiciairement à constater infractions, entendre témoins, placer en GAV."
+                },
+                {
+                    question: "Quelle est la durée maximale d'une garde à vue simple (hors terrorisme) ?",
+                    options: ["12 heures", "24 heures renouvelable une fois", "48 heures non renouvelable", "72 heures"],
+                    correct: 1,
+                    explanation: "Art. 63 CPP : 24h initiales renouvelables une fois, soit 48h maximum pour droit commun."
+                },
+                {
+                    question: "Qui peut autoriser une perquisition domiciliaire HORS flagrance ?",
+                    options: [
+                        "Le Procureur de la République",
+                        "Le Juge des Libertés et de la Détention (JLD)",
+                        "L'OPJ seul",
+                        "Le maire de la commune"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 57 CPP : Autorisation écrite du JLD obligatoire pour perquisition domiciliaire hors cadre flagrant."
+                },
+                {
+                    question: "Peut-on entendre un mineur en GAV sans présence d'un adulte ?",
+                    options: [
+                        "Oui, toujours possible",
+                        "Non, présence représentant légal obligatoire",
+                        "Seulement si parent présent dans les locaux",
+                        "Uniquement en flagrance"
+                    ],
+                    correct: 1,
+                    explanation: "Ord. 1945 + art. 3 : Présence représentant légal (parent/tuteur) obligatoire + avocat dès 1er interrogatoire."
+                },
+                {
+                    question: "Qu'est-ce que la flagrance selon le CPP ?",
+                    options: [
+                        "Uniquement infraction en cours de commission",
+                        "Uniquement infraction juste commise",
+                        "Infraction en cours OU venant de se commettre",
+                        "Aucune définition légale"
+                    ],
+                    correct: 2,
+                    explanation: "Art. 53 CPP : Définition large incluant infraction actuelle + trace immédiate + poursuite par clameur publique."
+                },
+                {
+                    question: "Quels sont les pouvoirs d'interpellation de l'OPJ ?",
+                    options: [
+                        "Seulement en flagrance",
+                        "Avec autorisation Procureur systématique",
+                        "En flagrance ou sur commission rogatoire",
+                        "Aucun pouvoir spécifique"
+                    ],
+                    correct: 2,
+                    explanation: "Art. 73 CPP : Interpellation possible en flagrance, sur mandat ou commission rogatoire du juge d'instruction."
+                },
+                {
+                    question: "Quels droits doivent être notifiés IMMÉDIATEMENT en début de GAV ?",
+                    options: [
+                        "Uniquement droit au silence",
+                        "Famille et avocat au choix",
+                        "Seulement notification famille",
+                        "Aucune notification obligatoire"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 63-1 CPP : Notification immédiate famille/personne choisie + consulat si étranger + droits avocat."
+                },
+                {
+                    question: "Quelle est la procédure pour les saisies effectuées par OPJ ?",
+                    options: [
+                        "Libre sans contrainte",
+                        "PV descriptif détaillé obligatoire",
+                        "Autorisation préalable systématique",
+                        "Interdiction totale"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 56 CPP : Toute saisie doit faire l'objet d'un PV descriptif avec inventaire exhaustif et signatures."
+                },
+                {
+                    question: "Comment se structure la hiérarchie des OPJ dans la Police Nationale ?",
+                    options: [
+                        "Uniquement commissaires",
+                        "Gardiens de paix, OPJ, commissaires",
+                        "Tous les gardiens de paix sont OPJ",
+                        "Seulement officiers supérieurs"
+                    ],
+                    correct: 1,
+                    explanation: "Hiérarchie : Gardiens de paix (APJ), Officiers OPJ, Commissaires (OPJ de plein droit + habilitation étendue)."
+                },
+                {
+                    question: "L'art. 78-2 CPP concerne principalement quoi ?",
+                    options: [
+                        "Contrôles d'identité et vérifications",
+                        "Garde à vue",
+                        "Perquisitions",
+                        "Audiences judiciaires"
+                    ],
+                    correct: 0,
+                    explanation: "Art. 78-2 CPP : Cadre juridique des contrôles et vérifications d'identité par OPJ/APJ sur réquisitions Procureur."
+                },
+                {
+                    question: "Quelle est la différence entre enquête préliminaire et flagrance ?",
+                    options: [
+                        "Aucune différence",
+                        "Flagrance = pouvoirs immédiats, préliminaire = autorisation Procureur",
+                        "Préliminaire plus de pouvoirs",
+                        "Seul le délai change"
+                    ],
+                    correct: 1,
+                    explanation: "Flagrance (art. 53) : pouvoirs étendus immédiats. Préliminaire (art. 75) : actes coercitifs sur autorisation."
+                },
+                {
+                    question: "Peut-on effectuer une perquisition domiciliaire de nuit EN FLAGRANCE ?",
+                    options: [
+                        "Jamais, même en flagrance",
+                        "Oui, si nécessité absolue de l'enquête",
+                        "Toujours librement",
+                        "Uniquement terrorisme"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 59 CPP : Perquisitions nocturnes possibles en flagrance si nécessité impérieuse de l'enquête (motivation écrite)."
+                },
+                {
+                    question: "Quelle est la valeur juridique d'un procès-verbal signé par un OPJ ?",
+                    options: [
+                        "Simple témoignage",
+                        "Foi publique jusqu'à preuve contraire",
+                        "Valeur absolue",
+                        "Aucune valeur"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 429 CPP : PV OPJ fait foi jusqu'à inscription de faux si respect des formes légales."
+                },
+                {
+                    question: "Qu'est-ce qu'une réquisition judiciaire de l'OPJ ?",
+                    options: [
+                        "Ordre militaire",
+                        "Demande motivée à personne qualifiée (médecin, expert)",
+                        "Convocation témoin",
+                        "Demande hiérarchique"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 60 CPP : OPJ peut requérir toute personne qualifiée (médecin, expert) sous peine d'amende en cas de refus."
+                },
+                {
+                    question: "Le secret professionnel protège-t-il lors d'une perquisition OPJ ?",
+                    options: [
+                        "Non, jamais",
+                        "Oui, procédure spéciale avec présence Bâtonnier/instance ordinale",
+                        "Uniquement avocats",
+                        "Protection totale"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 56-1 CPP : Perquisitions lieux protégés (avocats, médecins) = présence Bâtonnier/Conseil Ordre + tri contradictoire."
+                },
+                {
+                    question: "Quels sont les différents cadres d'enquête judiciaire ?",
+                    options: [
+                        "Uniquement flagrant délit et préliminaire",
+                        "Flagrant délit, enquête préliminaire, commission rogatoire, mort cause inconnue, disparition inquiétante, recherche personnes en fuite",
+                        "Seulement commission rogatoire",
+                        "Aucun cadre spécifique"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 53-78 CPP : 6 cadres d'enquête dont 3 cadres transitoires (mort, disparition, fuite) sur décision PR. [Formation OPJ PDF]"
+                },
+                {
+                    question: "Quelle est la définition EXACTE de la flagrance selon l'art. 53 CPP ?",
+                    options: [
+                        "Uniquement crime/délit qui se commet actuellement",
+                        "Crime/délit qui se commet OU vient de se commettre OU suspect poursuivi par clameur publique OU trouvé en possession objets/traces",
+                        "Uniquement les 24 premières heures",
+                        "Tout crime ou délit constaté"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 53 CPP : 4 situations de flagrance = actuellement + vient de se commettre + clameur publique + possession objets/traces. [CNJ Questions Oral PDF]"
+                },
+                {
+                    question: "Quelle est la durée de l'enquête de flagrant délit ?",
+                    options: [
+                        "24 heures uniquement",
+                        "8 jours sans discontinuer + 8 jours supplémentaires si crime/délit ≥5 ans sur autorisation PR",
+                        "Aucune limite",
+                        "48 heures maximum"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 53 CPP : 8 jours (1 acte/jour minimum) + prolongation 8 jours si infraction ≥5 ans et investigations nécessaires. [Formation OPJ PDF]"
+                },
+                {
+                    question: "Qui peut interpeller en flagrant délit selon l'art. 73 CPP ?",
+                    options: [
+                        "Uniquement les OPJ",
+                        "OPJ, APJ et tout citoyen dans un lieu public",
+                        "Seulement les commissaires",
+                        "Uniquement les magistrats"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 73 CPP : Tout citoyen peut appréhender l'auteur d'une infraction flagrante dans un lieu public. OPJ/APJ partout. [Formation OPJ PDF]"
+                },
+                {
+                    question: "Quelles sont les 3 conditions CUMULATIVES pour placer en garde à vue ?",
+                    options: [
+                        "Crime uniquement",
+                        "Crime/délit puni d'emprisonnement + unique moyen objectif art.62-2 + raisons plausibles de soupçonner",
+                        "Décision du Procureur uniquement",
+                        "Flagrance obligatoire"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 62-2 CPP : 3 conditions = infraction punissable emprisonnement + 1 des 6 objectifs 62-2 + raisons plausibles. [Formation OPJ PDF]"
+                },
+                {
+                    question: "Quels sont les 6 objectifs légaux de la GAV selon l'art. 62-2 CPP ?",
+                    options: [
+                        "Uniquement permettre les investigations",
+                        "1-Investigations impliquant présence 2-Présentation PR 3-Empêcher modification preuves 4-Empêcher pression témoins/victimes 5-Empêcher concertation 6-Faire cesser infraction",
+                        "Décision discrétionnaire OPJ",
+                        "Aucun objectif légal défini"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 62-2 CPP : 6 objectifs limitatifs pour justifier GAV, au moins 1 doit être rempli (motivation obligatoire). [Formation OPJ PDF]"
+                },
+                {
+                    question: "Quels sont les droits OBLIGATOIRES notifiés en début de GAV ?",
+                    options: [
+                        "Uniquement droit au silence",
+                        "Silence + interprète + assistance avocat + examen médical + avis proches/consulat + communication tiers + observations magistrat + consultation pièces + formulaire droits",
+                        "Seulement avocat",
+                        "Aucun droit spécifique"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 63-1 CPP : 9 droits fondamentaux notifiés immédiatement dont silence, avocat dès début (30min), médical, avis famille. [Formation OPJ PDF]"
+                },
+                {
+                    question: "Quel est le délai pour l'avis famille/tiers en GAV ?",
+                    options: [
+                        "24 heures",
+                        "3 heures maximum à compter de la demande (obligation de moyen)",
+                        "Aucun délai",
+                        "Immédiat sous 1 heure"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 63-2 CPP : Avis effectué dans délai 3h (obligation moyen). Report possible sur autorisation magistrat pour nécessité enquête 24h max. [Formation OPJ PDF]"
+                },
+                {
+                    question: "Quelle est la durée de retenue pour mineurs 10-13 ans ?",
+                    options: [
+                        "24 heures comme les majeurs",
+                        "12 heures maximum + 12h prolongation exceptionnelle sur décision magistrat si infraction ≥5 ans",
+                        "Aucune retenue possible",
+                        "48 heures"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 4 Ord. 1945 : Mineurs 10-13 ans = retenue 12h max + prolongation 12h exceptionnelle (≥5 ans). Avis magistrat préalable OBLIGATOIRE. [Formation OPJ PDF]"
+                },
+                {
+                    question: "Quels examens médicaux sont OBLIGATOIRES pour les mineurs en GAV/retenue ?",
+                    options: [
+                        "Aucun examen obligatoire",
+                        "Examen médical OBLIGATOIRE ET IMMÉDIAT pour mineurs de moins de 16 ans (dans les 3h)",
+                        "Uniquement si demandé",
+                        "Seulement en cas de blessure"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 4 Ord. 1945 : Mineur <16 ans = examen médical OBLIGATOIRE immédiat (3h max). Mineur 16-18 ans = facultatif sur demande. [Formation OPJ PDF]"
+                },
+                {
+                    question: "En enquête préliminaire, que faut-il pour effectuer une perquisition SANS assentiment ?",
+                    options: [
+                        "Impossible sans assentiment",
+                        "Crime ou délit ≥3 ans + autorisation écrite et motivée JLD sur réquisition PR",
+                        "Décision OPJ seul",
+                        "Uniquement en flagrance"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 76 CPP : Perquisition préliminaire sans assentiment = infraction ≥3 ans + autorisation JLD écrite motivée (nature faits + lieux visés). [Formation OPJ PDF]"
+                },
+                {
+                    question: "Quels actes NE peuvent PAS être délégués à l'OPJ en commission rogatoire ?",
+                    options: [
+                        "Toutes les auditions",
+                        "Délivrance mandats + réquisition expert + interrogatoires mis en examen + audition partie civile (sauf demande) + perquisitions secret professionnel",
+                        "Uniquement les perquisitions",
+                        "Aucune restriction"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 81-151 CPP : 5 catégories d'actes réservés au JI (mandats, experts, interrogatoires ME, PC sauf demande, perquis secret pro). [CNJ Questions Oral PDF]"
+                },
+                {
+                    question: "Depuis la LOPMI, quels actes peuvent être établis par les APJ en commission rogatoire ?",
+                    options: [
+                        "Aucun acte",
+                        "Réquisitions données informatiques + réquisitions opérateurs télécom (autorisation JI) + réquisitions interceptions + PV retranscriptions",
+                        "Toutes les réquisitions",
+                        "Uniquement les constatations"
+                    ],
+                    correct: 1,
+                    explanation: "LOPMI 2023 : APJ en CR peuvent établir réquisitions STAD, opérateurs télécom (avec autorisation expresse JI), interceptions, retranscriptions. [Formation OPJ PDF]"
+                },
+                {
+                    question: "Quelles sont les conditions du contrôle judiciaire ?",
+                    options: [
+                        "Décision libre du magistrat",
+                        "Personne mise en examen + mesure moins contraignante que détention provisoire + obligations précises art.138 CPP",
+                        "Uniquement pour les mineurs",
+                        "Automatique en préliminaire"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 137-138 CPP : CJ = alternative détention, prononcé par JLD, 18 obligations possibles (pointage, interdiction contact, caution...). [Formation OPJ PDF]"
+                },
+                {
+                    question: "Combien de temps l'OPJ a-t-il pour transmettre une procédure au Procureur ?",
+                    options: [
+                        "30 jours",
+                        "Dès clôture, sans délai (principe de célérité)",
+                        "7 jours",
+                        "Aucun délai légal"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 19 CPP : Transmission sans délai au Procureur dès fin des opérations d'enquête (principe célérité)."
+                },
+                {
+                    question: "Qu'est-ce que le principe de loyauté des preuves ?",
+                    options: [
+                        "Preuves obtenues par tout moyen",
+                        "Preuves obtenues par moyens légaux uniquement, sans stratagème déloyal",
+                        "Uniquement aveux",
+                        "Concept inexistant"
+                    ],
+                    correct: 1,
+                    explanation: "Jurisprudence constante : Preuves obtenues loyalement, interdiction provocation policière/stratagèmes déloyaux."
+                },
+                {
+                    question: "Un OPJ peut-il refuser un ordre manifestement illégal ?",
+                    options: [
+                        "Non, obéissance hiérarchique absolue",
+                        "Oui, devoir de désobéir à ordre manifestement illégal",
+                        "Seulement si danger physique",
+                        "Jamais"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 122-4 CP : Refus légitime d'ordre manifestement illégal et de nature à compromettre gravement intérêt public."
+                },
+                {
+                    question: "Quelle est la durée de validité de l'habilitation OPJ ?",
+                    options: [
+                        "À vie",
+                        "5 ans renouvelable",
+                        "10 ans",
+                        "3 ans"
+                    ],
+                    correct: 1,
+                    explanation: "Habilitation OPJ valable 5 ans, renouvelable sur demande après vérification aptitudes professionnelles."
+                },
+                {
+                    question: "Dans quel cas l'OPJ doit-il obligatoirement faire examiner un gardé à vue par un médecin ?",
+                    options: [
+                        "Jamais obligatoire",
+                        "Si demandé par intéressé, avocat ou d'office si mineur",
+                        "Toujours systématique",
+                        "Uniquement blessures visibles"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 63-3 CPP : Examen médical de droit si demandé par GAV/avocat/famille + d'office pour mineurs."
+                },
+                {
+                    question: "Quelles infractions récurrentes font partie des atteintes volontaires à l'intégrité de la personne ?",
+                    options: [
+                        "Uniquement le meurtre",
+                        "Violences volontaires (ITT), menaces de crime/délit, agressions sexuelles, meurtre, administration substances nuisibles",
+                        "Seulement les violences physiques",
+                        "Aucune catégorie spécifique"
+                    ],
+                    correct: 1,
+                    explanation: "CP art. 222-11 et suivants : 5 infractions majeures = violences (avec/sans ITT), menaces, agressions sexuelles, meurtre, admin substances. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Quels sont les 3 éléments constitutifs du VOL (art. 311-1 CP) ?",
+                    options: [
+                        "Uniquement la soustraction",
+                        "Élément matériel (soustraction chose autrui à l'insu/contre gré) + élément moral (conscience + intention appropriation) + élément légal (art.311-1 CP)",
+                        "Décision du juge",
+                        "Dommage causé"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 311-1 CP : Vol = soustraction frauduleuse chose autrui. 3 éléments = matériel (action) + moral (dol général) + légal (texte). [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Que doit prouver l'OPJ pour l'infraction d'USAGE ILLICITE DE STUPÉFIANT (art. L.3421-1 CSP) ?",
+                    options: [
+                        "Uniquement la possession",
+                        "Usage illicite + substance classée stupéfiants + usage intentionnel (élément moral)",
+                        "Trafic obligatoire",
+                        "Quantité importante"
+                    ],
+                    correct: 1,
+                    explanation: "Art. L.3421-1 CSP : Usage = acte matériel (consommation) + substance classée + intention (pas accident). Délit si usage, crime si trafic. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Quelle est la différence entre MENACES AVEC et SANS condition de remplir une condition ?",
+                    options: [
+                        "Aucune différence",
+                        "AVEC condition (art.222-18) = contraindre faire/pas faire + moyen indéterminé. SANS condition (art.222-17) = crime/délit dont tentative punissable + moyen déterminé + réitération OU écrit",
+                        "Uniquement la gravité",
+                        "Durée de la peine"
+                    ],
+                    correct: 1,
+                    explanation: "CP : Art.222-18 (avec ordre) = contrainte + tout moyen. Art.222-17 (sans ordre) = crime/délit grave + réitération OU matérialisation. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Quels sont les 3 éléments du MEURTRE (art. 221-1 CP) ?",
+                    options: [
+                        "Uniquement la mort",
+                        "Acte positif violence + personne autrui + lien causalité mort + intention homicide (élément moral)",
+                        "Décision magistrat",
+                        "Préméditation obligatoire"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 221-1 CP : Meurtre = acte violent + victime (humain, vivant, distinct) + mort + intention tuer (dol spécial). Assassinat = meurtre + préméditation. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Comment caractériser le RECEL (art. 321-1 CP) ?",
+                    options: [
+                        "Uniquement posséder un objet volé",
+                        "Acte matériel (dissimuler/détenir/transmettre/bénéficier) + chose provenant crime/délit tiers + connaissance origine frauduleuse",
+                        "Recevoir un cadeau",
+                        "Acheter occasion"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 321-1 CP : Recel = acte positif (4 actions) + objet d'infraction commise par autrui + connaissance origine illicite (élément intentionnel). [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Qu'est-ce que la NON-JUSTIFICATION DE RESSOURCES (art. 321-6 CP) ?",
+                    options: [
+                        "Chômage",
+                        "Absence justification ressources correspondant train de vie + relations habituelles avec auteurs infractions OU victime + conscience bénéficier produit infractions",
+                        "Pauvreté",
+                        "Économie au noir"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 321-6 CP : Recel par dissimulation = ressources injustifiées + fréquentation délinquants + conscience profiter activités criminelles. Peine 5 ans + 75.000€. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Quels éléments constituent l'ESCROQUERIE (art. 313-1 CP) ?",
+                    options: [
+                        "Simplement mentir",
+                        "Moyen tromperie (faux nom/qualité/abus qualité vraie/manœuvres frauduleuses) + remise (fonds/biens/services) + préjudice victime + intention frauduleuse",
+                        "Erreur commerciale",
+                        "Publicité mensongère"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 313-1 CP : Escroquerie = 4 moyens tromperie + remise volontaire victime trompée + préjudice + dol spécial (obtenir remise frauduleuse). Délit 5 ans. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Comment constater le délit de CONDUITE APRÈS USAGE DE STUPÉFIANTS (art. L.235-1 CR) ?",
+                    options: [
+                        "Déclaration suffisante",
+                        "Conducteur VL/accompagnateur + cas permettant recherche (accidents, infractions, dépistage) + preuve présence stupéfiants (examen clinique + analyse) + volonté conduire après usage",
+                        "Suspicion uniquement",
+                        "Aveu obligatoire"
+                    ],
+                    correct: 1,
+                    explanation: "Art. L.235-1 CR : Délit = conducteur + dépistage positif (salivaire + confirmation sang/urine) + volonté. Peine 2 ans + 4.500€ + retrait points. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Quelle est la définition du REFUS D'OBTEMPÉRER (art. L.233-1 CR) ?",
+                    options: [
+                        "Circuler sans permis",
+                        "Agents habilités + sommation de s'arrêter + refus d'obtempérer + volonté de ne pas obéir sommation",
+                        "Contester une amende",
+                        "Rouler vite"
+                    ],
+                    correct: 1,
+                    explanation: "Art. L.233-1 CR : Refus obtempérer = sommation arrêt par force publique (OPJ/APJ/Gendarmerie/Douanes) + refus volontaire. Délit 1 an + 7.500€. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Quels sont les éléments de la RÉBELLION (art. 433-6 et 433-7 CP) ?",
+                    options: [
+                        "Insulter un policier",
+                        "Victime PDAP/PCMSP + dans exercice fonctions (lois/ordres/décisions/mandats) + acte résistance VIOLENTE + connaissance qualité agent + volonté résister",
+                        "Refus passif",
+                        "Discussion verbale"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 433-6 CP : Rébellion = violence physique contre agent public en fonction. Distinction OUTRAGE (433-5) = expression outrageante SANS violence. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Comment qualifier les DESTRUCTIONS, DÉGRADATIONS, DÉTÉRIORATIONS DANGEREUSES (art. 322-6 CP) ?",
+                    options: [
+                        "Simple dommage matériel",
+                        "Atteinte matérielle créant danger personnes (incendie/explosion/moyens dangereux) + bien autrui + dommage DDD + volonté créer danger (infraction intentionnelle)",
+                        "Accident",
+                        "Négligence"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 322-6 al.1 CP : DDD dangereuses = moyen créant danger (feu, explosif) + bien autrui + dommage + intention nuire. Crime si avec danger. Délit si sans. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Qu'est-ce que l'OUTRAGE à PDAP/PCMSP (art. 433-5 CP) ?",
+                    options: [
+                        "Violence physique",
+                        "Personne outragée PDAP/PCMSP + expression outrageante (paroles/gestes/menaces/écrits direct/indirect) + connaissance qualité + conscience porter atteinte dignité/respect fonction",
+                        "Simple désaccord",
+                        "Critique légitime"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 433-5 CP : Outrage = expression (forme variée) attentatoire dignité dépositaire autorité publique en fonction. Délit 1 an + 15.000€. Distinction rébellion = violence. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Définir le CHANTAGE (art. 312-10 CP) ?",
+                    options: [
+                        "Simple demande d'argent",
+                        "Menace révélations/imputations diffamatoires + expression menace (écrit/verbal) + objet menace (signature/engagement/renonciation/secret/remise fonds) + volonté contraindre",
+                        "Négociation",
+                        "Demande légitime"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 312-10 CP : Chantage = menace révéler/imputer faits (vrais/faux) pour obtenir quelque chose (argent, document, secret). Délit 5 ans + 75.000€. Extorsion si violence. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Quelles sont les situations de CONDUITE SOUS EMPIRE ÉTAT ALCOOLIQUE (art. L.234-1 CR) ?",
+                    options: [
+                        "Uniquement alcoolémie délictuelle",
+                        "Conducteur VL/accompagnateur + cas dépistage (obligatoire/facultatif/préventif/impossible) + preuve alcoolémie délictuelle ≥0,80g/l sang OU ≥0,40mg/l air + volonté conduire",
+                        "Consommation dans véhicule",
+                        "Odeur alcool"
+                    ],
+                    correct: 1,
+                    explanation: "Art. L.234-1-I CR : Délit si taux ≥0,80g/l sang (≥0,40mg/l air). Contravention si 0,50-0,80g/l. Dépistage éthylomètre + vérification éthylométrie/prise sang. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Qu'est-ce que l'EMBUSCADE (art. 222-15-1 CP) créée en 2016 ?",
+                    options: [
+                        "Simple attaque",
+                        "Infraction PRÉPARÉE (guet-apens violences avec armes NON réalisées) + victime PDAP/PCMSP en fonction + matérialisation volonté agir",
+                        "Attaque réalisée",
+                        "Manifestation"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 222-15-1 CP : Embuscade = préparation caractérisée d'une attaque violente avec armes contre forces de l'ordre, MÊME si violences non commises. Crime 10 ans. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Identifier le HARCÈLEMENT SEXUEL (art. 222-33 CP) ?",
+                    options: [
+                        "Drague insistante",
+                        "Comportement harcèlement agissements répétés OU acte unique (pression grave) + finalité nature sexuelle + conscience harceler + volonté obtenir acte sexuel",
+                        "Compliment",
+                        "Séduction"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 222-33 CP : 2 formes = agissements répétés (propos/comportements connotation sexuelle) OU acte unique avec pression grave (ordre hiérarchique). Délit 2 ans + 30.000€. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Définir l'ABANDON DE FAMILLE (art. 227-3 CP) ?",
+                    options: [
+                        "Quitter le domicile",
+                        "Acte imposant versement somme (obligation familiale/décision justice) + défaut paiement >2 mois ou inexécution intégrale + volonté ne pas exécuter",
+                        "Divorce",
+                        "Séparation"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 227-3 CP : Abandon famille = non-paiement pension alimentaire/contribution éducation >2 mois. Délit 2 ans + 15.000€. Plainte victime obligatoire. [CNJ Infractions Récurrentes PDF]"
+                },
+                {
+                    question: "Caractériser la NON-REPRÉSENTATION D'ENFANT (art. 227-5 CP) ?",
+                    options: [
+                        "Garder enfant chez soi",
+                        "Droit réclamer mineur (décision justice) + refus représenter mineur + conscience faire échec droits réclamant",
+                        "Vacances prolongées",
+                        "Retard ponctuel"
+                    ],
+                    correct: 1,
+                    explanation: "Art. 227-5 CP : Refus restituer enfant à parent ayant droit de visite/hébergement fixé par juge. Délit 1 an + 15.000€. Enlèvement parental si déplacement. [CNJ Infractions Récurrentes PDF]"
+                }
+            ],
+            
+            // State
+            currentQuestion: 0,
+            score: 0,
+            answers: [],
+            subscribers: new Set(),
+            
+            // State Management
+            getState() {
+                return {
+                    currentQuestion: this.currentQuestion,
+                    score: this.score,
+                    answers: [...this.answers],
+                    totalQuestions: this.questions.length
+                };
+            },
+            
+            setState(updates) {
+                Object.assign(this, updates);
+                this.notify();
+            },
+            
+            subscribe(callback) {
+                this.subscribers.add(callback);
+                return () => this.subscribers.delete(callback);
+            },
+            
+            notify() {
+                this.subscribers.forEach(callback => callback(this.getState()));
+            },
+            
+            // Actions
+            selectAnswer(index) {
+                this.answers[this.currentQuestion] = index;
+                this.notify();
+            },
+            
+            nextQuestion() {
+                if (this.answers[this.currentQuestion] === this.questions[this.currentQuestion].correct) {
+                    this.score++;
+                }
+                this.currentQuestion++;
+                this.notify();
+            },
+            
+            reset() {
+                this.currentQuestion = 0;
+                this.score = 0;
+                this.answers = [];
+                this.notify();
+            }
+        };
+        
+        // UI Controller
+        const UI = {
+            elements: {
+                questionContainer: document.getElementById('questionContainer'),
+                nextBtn: document.getElementById('nextBtn'),
+                progressBar: document.getElementById('progressBar'),
+                scoreDisplay: document.getElementById('scoreDisplay'),
+                progressDisplay: document.getElementById('progressDisplay'),
+                questionNumDisplay: document.getElementById('questionNumDisplay'),
+                quizSection: document.getElementById('quizSection'),
+                resultsSection: document.getElementById('resultsSection'),
+                finalScore: document.getElementById('finalScore'),
+                finalMessage: document.getElementById('finalMessage'),
+                correctCount: document.getElementById('correctCount'),
+                incorrectCount: document.getElementById('incorrectCount')
+            },
+            
+            loadQuestion(state) {
+                const q = AppState.questions[state.currentQuestion];
+                const answered = state.answers[state.currentQuestion] !== undefined;
+                
+                this.elements.questionContainer.innerHTML = `
+                    <div class="question-number">Question ${state.currentQuestion + 1}/${state.totalQuestions}</div>
+                    <h2 class="question-text">${q.question}</h2>
+                    <div class="options-grid">
+                        ${q.options.map((opt, i) => {
+                            let classes = 'option';
+                            if (answered) {
+                                classes += ' disabled';
+                                if (i === q.correct) classes += ' correct';
+                                else if (i === state.answers[state.currentQuestion] && i !== q.correct) classes += ' incorrect';
+                            }
+                            if (i === state.answers[state.currentQuestion]) classes += ' selected';
+                            return `<div class="${classes}" onclick="selectAnswer(${i})">${opt}</div>`;
+                        }).join('')}
+                    </div>
+                    <div class="explanation ${answered ? 'show' : ''}">${q.explanation}</div>
+                `;
+                
+                this.elements.nextBtn.disabled = state.answers[state.currentQuestion] === undefined;
+                this.elements.nextBtn.textContent = answered 
+                    ? (state.currentQuestion < state.totalQuestions - 1 ? 'Question suivante →' : 'Voir les résultats 🎉')
+                    : 'Sélectionnez une réponse';
+            },
+            
+            updateStats(state) {
+                const progress = Math.round((state.currentQuestion / state.totalQuestions) * 100);
+                this.elements.progressBar.style.width = progress + '%';
+                this.elements.scoreDisplay.textContent = state.score;
+                this.elements.progressDisplay.textContent = progress + '%';
+                this.elements.questionNumDisplay.textContent = `${state.currentQuestion + 1}/${state.totalQuestions}`;
+            },
+            
+            showResults(state) {
+                this.elements.quizSection.classList.add('hidden');
+                this.elements.resultsSection.classList.remove('hidden');
+                
+                const percentage = Math.round((state.score / state.totalQuestions) * 100);
+                this.elements.finalScore.textContent = percentage + '%';
+                this.elements.correctCount.textContent = state.score;
+                this.elements.incorrectCount.textContent = state.totalQuestions - state.score;
+                
+                let message = '';
+                if (percentage >= 90) message = '🎉 OPJ Légendaire ! Tu maîtrises parfaitement le sujet.';
+                else if (percentage >= 80) message = '🔥 Excellent niveau ! Prêt pour le concours.';
+                else if (percentage >= 70) message = '👍 Très bon score. Continue l\'entraînement.';
+                else if (percentage >= 60) message = '💪 Bon début. Révise les points faibles.';
+                else if (percentage >= 50) message = '⚡ C\'est un start. Reprends les fiches OPJ.';
+                else message = '📚 Beaucoup de travail nécessaire. À fond sur les bases !';
+                
+                this.elements.finalMessage.textContent = message;
+            }
+        };
+        
+        // Event Handlers
+        function selectAnswer(index) {
+            const state = AppState.getState();
+            if (state.answers[state.currentQuestion] !== undefined) return;
+            
+            AppState.selectAnswer(index);
+            UI.loadQuestion(AppState.getState());
+        }
+        
+        function nextQuestion() {
+            const state = AppState.getState();
+            
+            if (state.currentQuestion < state.totalQuestions - 1) {
+                AppState.nextQuestion();
+                UI.loadQuestion(AppState.getState());
+                UI.updateStats(AppState.getState());
+            } else {
+                UI.showResults(AppState.getState());
+            }
+        }
+        
+        function restartQuiz() {
+            AppState.reset();
+            UI.elements.resultsSection.classList.add('hidden');
+            UI.elements.quizSection.classList.remove('hidden');
+            UI.loadQuestion(AppState.getState());
+            UI.updateStats(AppState.getState());
+            switchTab('quiz');
+        }
+        
+        function switchTab(tab) {
+            // Update tabs
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Update sections
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(tab + 'Section').classList.add('active');
+        }
+        
+        function toggleFiche(element) {
+            element.classList.toggle('expanded');
+        }
+        
+        function toggleOral(element) {
+            element.classList.toggle('expanded');
+        }
+        
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                const swCode = `
+                    const CACHE_NAME = 'opj-quiz-v1';
+                    const urlsToCache = ['/'];
+                    
+                    self.addEventListener('install', event => {
+                        event.waitUntil(
+                            caches.open(CACHE_NAME)
+                                .then(cache => cache.addAll(urlsToCache))
+                        );
+                    });
+                    
+                    self.addEventListener('fetch', event => {
+                        event.respondWith(
+                            caches.match(event.request)
+                                .then(response => response || fetch(event.request))
+                                .catch(() => caches.match('/'))
+                        );
+                    });
+                    
+                    self.addEventListener('activate', event => {
+                        event.waitUntil(
+                            caches.keys().then(cacheNames => {
+                                return Promise.all(
+                                    cacheNames.map(cacheName => {
+                                        if (cacheName !== CACHE_NAME) {
+                                            return caches.delete(cacheName);
+                                        }
+                                    })
+                                );
+                            })
+                        );
+                    });
+                `;
+                
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+                
+                navigator.serviceWorker.register(swUrl)
+                    .then(reg => console.log('✅ PWA Service Worker enregistré', reg.scope))
+                    .catch(err => console.log('❌ Erreur SW:', err));
+            });
+        }
+        
+        // Initialize App
+        AppState.subscribe(state => {
+            UI.updateStats(state);
+        });
+        
+        UI.loadQuestion(AppState.getState());
+        UI.updateStats(AppState.getState());
+        
+        console.log('%c🎓 QCM OPJ Légendaire chargé avec succès !', 'color: #38bdf8; font-size: 20px; font-weight: bold');
+        console.log('%c✨ Architecture moderne : State Management réactif + PWA offline-first', 'color: #10b981; font-size: 14px');
+    </script>
+</body>
+</html>
